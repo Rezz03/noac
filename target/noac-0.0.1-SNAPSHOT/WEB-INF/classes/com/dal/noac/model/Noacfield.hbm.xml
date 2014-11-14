@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 26, 2014 5:44:33 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.dal.noac.model.Noacfield" table="noacfield" catalog="noac" optimistic-lock="version">
+        <id name="id" type="int">
+            <column name="id" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="section" class="com.dal.noac.model.Section" fetch="select">
+            <column name="sectionId" />
+        </many-to-one>
+        <property name="label" type="string">
+            <column name="label" length="45" />
+        </property>
+        <property name="inputFormat" type="string">
+            <column name="inputFormat" length="8" />
+        </property>
+        <property name="orderIndex" type="string">
+            <column name="orderIndex" length="45" />
+        </property>
+        <property name="value" type="string">
+            <column name="value" length="45" />
+        </property>
+        <set name="noacfieldselectoptionses" table="noacfieldselectoptions" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="noacfieldid" not-null="true" />
+            </key>
+            <one-to-many class="com.dal.noac.model.Noacfieldselectoptions" />
+        </set>
+    </class>
+</hibernate-mapping>

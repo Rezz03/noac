@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 26, 2014 5:44:33 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.dal.noac.model.Noacfieldselectoptions" table="noacfieldselectoptions" catalog="noac" optimistic-lock="version">
+        <id name="id" type="int">
+            <column name="id" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="noacfield" class="com.dal.noac.model.Noacfield" fetch="select">
+            <column name="noacfieldid" not-null="true" />
+        </many-to-one>
+        <property name="value" type="string">
+            <column name="value" length="45" not-null="true" />
+        </property>
+        <property name="label" type="string">
+            <column name="label" length="45" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>
