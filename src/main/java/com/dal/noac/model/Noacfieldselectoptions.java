@@ -11,6 +11,7 @@ public class Noacfieldselectoptions implements java.io.Serializable {
 	private Noacfield noacfield;
 	private String value;
 	private String label;
+	private String orderIndex;	
 
 	public Noacfieldselectoptions() {
 	}
@@ -53,6 +54,14 @@ public class Noacfieldselectoptions implements java.io.Serializable {
 
 	public void setLabel(String label) {
 		this.label = label;
+	}
+	
+	public String getOrderIndex() {
+		return orderIndex;
+	}
+
+	public void setOrderIndex(String orderIndex) {
+		this.orderIndex = orderIndex;
 	}
 
 }

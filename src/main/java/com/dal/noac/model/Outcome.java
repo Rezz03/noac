@@ -14,6 +14,7 @@ public class Outcome implements java.io.Serializable {
 	private byte[] successful;
 	private String criteria;
 	private String message;
+	private Integer orderIndex;
 	private Set<Noacform> noacforms = new HashSet<Noacform>(0);
 
 	public Outcome() {
@@ -73,6 +74,14 @@ public class Outcome implements java.io.Serializable {
 
 	public void setNoacforms(Set<Noacform> noacforms) {
 		this.noacforms = noacforms;
+	}
+	
+	public Integer getOrderIndex() {
+		return orderIndex;
+	}
+
+	public void setOrderIndex(Integer orderIndex) {
+		this.orderIndex = orderIndex;
 	}
 
 }

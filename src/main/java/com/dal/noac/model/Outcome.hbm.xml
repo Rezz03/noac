@@ -17,6 +17,9 @@
         <property name="message" type="string">
             <column name="message" length="45" not-null="true" />
         </property>
+        <property generated="never" lazy="false" name="orderIndex" type="java.lang.Integer">
+   			<column index="Order_idx" name="orderIndex"/>
+ 	 	</property>
         <set name="noacforms" table="noacformoutcome" inverse="false" lazy="true" fetch="select" catalog="noac">
             <key>
                 <column name="outcomeId" not-null="true" />

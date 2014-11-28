@@ -2,7 +2,9 @@ package com.dal.noac.model;
 
 // Generated Oct 26, 2014 5:44:33 PM by Hibernate Tools 4.3.1
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -14,8 +16,8 @@ public class Noacform implements java.io.Serializable {
 	private Drug drug;
 	private Province province;
 	private String title;
-	private Set<Outcome> outcomes = new HashSet<Outcome>(0);
-	private Set<Section> sections = new HashSet<Section>(0);
+	private List<Outcome> outcomes = new ArrayList<Outcome>(0);
+	private List<Section> sections = new ArrayList<Section>(0);
 
 	public Noacform() {
 	}
@@ -25,7 +27,7 @@ public class Noacform implements java.io.Serializable {
 	}
 
 	public Noacform(int id, Drug drug, Province province, String title,
-			Set<Outcome> outcomes, Set<Section> sections) {
+			List<Outcome> outcomes, List<Section> sections) {
 		this.id = id;
 		this.drug = drug;
 		this.province = province;
@@ -66,19 +68,19 @@ public class Noacform implements java.io.Serializable {
 		this.title = title;
 	}
 
-	public Set<Outcome> getOutcomes() {
+	public List<Outcome> getOutcomes() {
 		return this.outcomes;
 	}
 
-	public void setOutcomes(Set<Outcome> outcomes) {
+	public void setOutcomes(List<Outcome> outcomes) {
 		this.outcomes = outcomes;
 	}
 
-	public Set<Section> getSections() {
+	public List<Section> getSections() {
 		return this.sections;
 	}
 
-	public void setSections(Set<Section> sections) {
+	public void setSections(List<Section> sections) {
 		this.sections = sections;
 	}
 

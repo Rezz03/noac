@@ -1,6 +1,7 @@
 package com.dal.noac.layout;
 
 import java.util.Iterator;
+import java.util.List;
 import java.util.Set;
 
 import com.dal.noac.model.Noacfield;
@@ -24,7 +25,7 @@ public class NOACFormSectionLayout extends Panel {
 	
 	public void build(){
 		FormLayout form = new FormLayout();
-		Set<Noacfield> fields = section.getNoacfields();
+		List<Noacfield> fields = section.getNoacfields();
 		Iterator<Noacfield> fieldIterator = fields.iterator();
 		while(fieldIterator.hasNext()){
 			Noacfield field = fieldIterator.next();
@@ -34,7 +35,7 @@ public class NOACFormSectionLayout extends Panel {
 				form.addComponent(textfield);
 			} else{
 				OptionGroup optiongroup = new OptionGroup(field.getLabel());
-				Set<Noacfieldselectoptions> options = field.getNoacfieldselectoptionses();
+				List<Noacfieldselectoptions> options = field.getNoacfieldselectoptionses();
 				Iterator<Noacfieldselectoptions> optionIterator = options.iterator();
 				while(optionIterator.hasNext()){
 					optiongroup.addItem(optionIterator.next().getLabel());

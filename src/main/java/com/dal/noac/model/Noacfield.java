@@ -2,7 +2,9 @@ package com.dal.noac.model;
 
 // Generated Oct 26, 2014 5:44:33 PM by Hibernate Tools 4.3.1
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -10,13 +12,13 @@ import java.util.Set;
  */
 public class Noacfield implements java.io.Serializable {
 
-	private int id;
+	private int id = -1;
 	private Section section;
 	private String label;
 	private String inputFormat;
 	private String orderIndex;
 	private String value;
-	private Set<Noacfieldselectoptions> noacfieldselectoptionses = new HashSet<Noacfieldselectoptions>(
+	private List<Noacfieldselectoptions> noacfieldselectoptionses = new ArrayList<Noacfieldselectoptions>(
 			0);
 
 	public Noacfield() {
@@ -28,7 +30,7 @@ public class Noacfield implements java.io.Serializable {
 
 	public Noacfield(int id, Section section, String label, String inputFormat,
 			String orderIndex, String value,
-			Set<Noacfieldselectoptions> noacfieldselectoptionses) {
+			List<Noacfieldselectoptions> noacfieldselectoptionses) {
 		this.id = id;
 		this.section = section;
 		this.label = label;
@@ -86,12 +88,12 @@ public class Noacfield implements java.io.Serializable {
 		this.value = value;
 	}
 
-	public Set<Noacfieldselectoptions> getNoacfieldselectoptionses() {
+	public List<Noacfieldselectoptions> getNoacfieldselectoptionses() {
 		return this.noacfieldselectoptionses;
 	}
 
 	public void setNoacfieldselectoptionses(
-			Set<Noacfieldselectoptions> noacfieldselectoptionses) {
+			List<Noacfieldselectoptions> noacfieldselectoptionses) {
 		this.noacfieldselectoptionses = noacfieldselectoptionses;
 	}
 

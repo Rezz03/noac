@@ -17,5 +17,8 @@
         <property name="label" type="string">
             <column name="label" length="45" not-null="true" />
         </property>
+        <property generated="never" lazy="false" name="orderIndex" type="string">
+   			<column index="Order_idx" length="45" name="orderIndex"/>
+  		</property>
     </class>
 </hibernate-mapping>

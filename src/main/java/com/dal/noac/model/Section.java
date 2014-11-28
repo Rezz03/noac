@@ -2,7 +2,9 @@ package com.dal.noac.model;
 
 // Generated Oct 26, 2014 5:44:33 PM by Hibernate Tools 4.3.1
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -14,7 +16,7 @@ public class Section implements java.io.Serializable {
 	private Noacform noacform;
 	private String title;
 	private Integer orderIndex;
-	private Set<Noacfield> noacfields = new HashSet<Noacfield>(0);
+	private List<Noacfield> noacfields = new ArrayList<Noacfield>(0);
 
 	public Section() {
 	}
@@ -26,7 +28,7 @@ public class Section implements java.io.Serializable {
 	}
 
 	public Section(int id, Noacform noacform, String title, Integer orderIndex,
-			Set<Noacfield> noacfields) {
+			List<Noacfield> noacfields) {
 		this.id = id;
 		this.noacform = noacform;
 		this.title = title;
@@ -66,11 +68,11 @@ public class Section implements java.io.Serializable {
 		this.orderIndex = orderIndex;
 	}
 
-	public Set<Noacfield> getNoacfields() {
+	public List<Noacfield> getNoacfields() {
 		return this.noacfields;
 	}
 
-	public void setNoacfields(Set<Noacfield> noacfields) {
+	public void setNoacfields(List<Noacfield> noacfields) {
 		this.noacfields = noacfields;
 	}
 

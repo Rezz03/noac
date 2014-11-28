@@ -1,35 +1,33 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
-"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+                                   "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <!-- Generated Oct 26, 2014 5:44:33 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-    <class name="com.dal.noac.model.Noacform" table="noacform" catalog="noac" optimistic-lock="version">
-        <id name="id" type="int">
-            <column name="id" />
-            <generator class="assigned" />
-        </id>
-        <many-to-one name="drug" class="com.dal.noac.model.Drug" fetch="select">
-            <column name="drugId" />
-        </many-to-one>
-        <many-to-one name="province" class="com.dal.noac.model.Province" fetch="select">
-            <column name="provinceId" />
-        </many-to-one>
-        <property name="title" type="string">
-            <column name="title" length="45" />
-        </property>
-        <set name="outcomes" table="noacformoutcome" inverse="false" lazy="true" fetch="select" catalog="noac">
-            <key>
-                <column name="formId" not-null="true" />
-            </key>
-            <many-to-many entity-name="com.dal.noac.model.Outcome">
-                <column name="outcomeId" not-null="true" />
-            </many-to-many>
-        </set>
-        <set name="sections" table="section" inverse="true" lazy="true" fetch="select">
-            <key>
-                <column name="formId" not-null="true" />
-            </key>
-            <one-to-many class="com.dal.noac.model.Section" />
-        </set>
-    </class>
+ <class catalog="noac" name="com.dal.noac.model.Noacform" table="noacform">
+  <id name="id" type="int">
+   <column name="id"/>
+   <generator class="assigned"/>
+  </id>
+  <many-to-one class="com.dal.noac.model.Drug" fetch="select" name="drug">
+   <column name="drugId"/>
+  </many-to-one>
+  <many-to-one class="com.dal.noac.model.Province" fetch="select" name="province">
+   <column name="provinceId"/>
+  </many-to-one>
+  <property generated="never" lazy="false" name="title" type="string">
+   <column length="45" name="title"/>
+  </property>
+  <list catalog="noac" fetch="select" lazy="false" name="outcomes" table="noacformoutcome">
+   <key column="formId" not-null="true"/>
+   <list-index base="1" column="orderIndex"/>
+   <many-to-many entity-name="com.dal.noac.model.Outcome" unique="false">
+    <column name="outcomeId" not-null="true"/>
+   </many-to-many>
+  </list>
+  <list fetch="select" inverse="true" lazy="true" name="sections" table="section">
+   <key column="formId" not-null="true"/>
+   <list-index base="1" column="orderIndex"/>
+   <one-to-many class="com.dal.noac.model.Section"/>
+  </list>
+ </class>
 </hibernate-mapping>

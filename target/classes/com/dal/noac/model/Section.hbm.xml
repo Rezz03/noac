@@ -1,27 +1,26 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
-"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+                                   "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <!-- Generated Oct 26, 2014 5:44:33 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-    <class name="com.dal.noac.model.Section" table="section" catalog="noac" optimistic-lock="version">
-        <id name="id" type="int">
-            <column name="id" />
-            <generator class="assigned" />
-        </id>
-        <many-to-one name="noacform" class="com.dal.noac.model.Noacform" fetch="select">
-            <column name="formId" not-null="true" />
-        </many-to-one>
-        <property name="title" type="string">
-            <column name="title" length="45" not-null="true" />
-        </property>
-        <property name="orderIndex" type="java.lang.Integer">
-            <column name="orderIndex" />
-        </property>
-        <set name="noacfields" table="noacfield" inverse="true" lazy="true" fetch="select">
-            <key>
-                <column name="sectionId" />
-            </key>
-            <one-to-many class="com.dal.noac.model.Noacfield" />
-        </set>
-    </class>
+ <class catalog="noac" name="com.dal.noac.model.Section" table="section">
+  <id name="id" type="int">
+   <column name="id"/>
+   <generator class="assigned"/>
+  </id>
+  <many-to-one class="com.dal.noac.model.Noacform" fetch="select" name="noacform">
+   <column name="formId" not-null="true"/>
+  </many-to-one>
+  <property generated="never" lazy="false" name="title" type="string">
+   <column length="45" name="title" not-null="true"/>
+  </property>
+  <property generated="never" lazy="false" name="orderIndex" type="java.lang.Integer">
+   <column index="Order_idx" name="orderIndex"/>
+  </property>
+  <list fetch="select" inverse="true" lazy="true" name="noacfields" table="noacfield">
+   <key column="sectionId" />
+   <list-index column="orderIndex" base="1"></list-index>
+   <one-to-many class="com.dal.noac.model.Noacfield"/>
+  </list>
+ </class>
 </hibernate-mapping>
